@@ -1,0 +1,1695 @@
+<!index.html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testi për Orientim në Karrierë për Nxënësit e Klasës së Nëntë</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            margin: 0;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 100, 0.15);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(to right, #0f4c81, #1a5f9e);
+            color: white;
+            padding: 35px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            position: relative;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-top: 15px;
+            opacity: 0.9;
+            position: relative;
+            font-weight: 300;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            min-height: 600px;
+        }
+        
+        .student-info-section {
+            padding: 25px 30px;
+            background-color: #f8fafd;
+            border-bottom: 1px solid #eaeef5;
+        }
+        
+        .student-info-section h3 {
+            color: #0f4c81;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .student-info-section h3::before {
+            content: "📝";
+            font-size: 1.5rem;
+        }
+        
+        .info-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #444;
+            font-size: 0.95rem;
+        }
+        
+        .form-group input, .form-group select {
+            padding: 12px 15px;
+            border: 2px solid #d1dceb;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #1a5f9e;
+            box-shadow: 0 0 0 3px rgba(26, 95, 158, 0.1);
+        }
+        
+        .quiz-container {
+            padding: 30px;
+            flex-grow: 1;
+        }
+        
+        .question {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eaeef5;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .question.active {
+            display: block;
+        }
+        
+        h2 {
+            color: #0f4c81;
+            margin-top: 0;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        
+        .question-number {
+            background-color: #1a5f9e;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+        
+        .question-text {
+            flex-grow: 1;
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .option {
+            padding: 18px 20px;
+            background-color: #f8fafd;
+            border: 2px solid #e1e8f3;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .option:hover {
+            background-color: #eef2f9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .option.selected {
+            background-color: #e1ecff;
+            border-color: #1a5f9e;
+            font-weight: 600;
+        }
+        
+        .option-indicator {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid #a0b6d8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: bold;
+            color: #a0b6d8;
+        }
+        
+        .option.selected .option-indicator {
+            background-color: #1a5f9e;
+            border-color: #1a5f9e;
+            color: white;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid #eaeef5;
+        }
+        
+        button {
+            padding: 14px 30px;
+            background-color: #1a5f9e;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        button:hover {
+            background-color: #0f4c81;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(15, 76, 129, 0.2);
+        }
+        
+        button:disabled {
+            background-color: #a0b6d8;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .progress-container {
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .progress-text {
+            font-weight: 600;
+            color: #0f4c81;
+        }
+        
+        .progress-percent {
+            font-weight: 600;
+            color: #1a5f9e;
+        }
+        
+        .progress-bar {
+            height: 12px;
+            background-color: #eaeef5;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, #1a5f9e, #2d7bc9);
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 6px;
+        }
+        
+        .result {
+            display: none;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .result-header {
+            margin-bottom: 30px;
+        }
+        
+        .result-header h2 {
+            color: #0f4c81;
+            font-size: 2rem;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .result-header h2::before {
+            content: "🎯";
+            font-size: 2.5rem;
+        }
+        
+        .result-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .personality-card {
+            flex: 1;
+            min-width: 300px;
+            background: linear-gradient(to bottom right, #f8fafd, #eef2f9);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #1a5f9e;
+            text-align: left;
+        }
+        
+        .career-card {
+            flex: 1.5;
+            min-width: 300px;
+            background: linear-gradient(to bottom right, #f0f7ff, #e1ecff);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #4CAF50;
+        }
+        
+        .card-title {
+            color: #0f4c81;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .personality-type {
+            font-size: 2.2rem;
+            color: #1a5f9e;
+            font-weight: bold;
+            margin: 20px 0;
+            text-align: center;
+            padding: 15px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .career-suggestions {
+            text-align: left;
+        }
+        
+        .career-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .career-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .career-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .student-notes {
+            margin-top: 40px;
+            background-color: #fff9e6;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #FFC107;
+            text-align: left;
+        }
+        
+        .student-notes h3 {
+            color: #b88b00;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .student-notes h3::before {
+            content: "💡";
+        }
+        
+        .personality-explanation {
+            margin-top: 40px;
+            background-color: #e8f4fd;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #2196F3;
+            text-align: left;
+        }
+        
+        .personality-explanation h3 {
+            color: #0d47a1;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .personality-explanation h3::before {
+            content: "🔍";
+        }
+        
+        .dimensions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .dimension {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .dimension-title {
+            font-weight: bold;
+            color: #0f4c81;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .dimension-letters {
+            display: flex;
+            gap: 15px;
+            font-weight: bold;
+        }
+        
+        .dimension-letter {
+            padding: 5px 10px;
+            border-radius: 4px;
+            background-color: #f0f7ff;
+        }
+        
+        .dimension-letter.e {
+            background-color: #e3f2fd;
+            color: #1565c0;
+        }
+        
+        .dimension-letter.i {
+            background-color: #f3e5f5;
+            color: #7b1fa2;
+        }
+        
+        .dimension-letter.s {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .dimension-letter.n {
+            background-color: #fff3e0;
+            color: #ef6c00;
+        }
+        
+        .dimension-letter.t {
+            background-color: #fce4ec;
+            color: #c2185b;
+        }
+        
+        .dimension-letter.f {
+            background-color: #f3e5f5;
+            color: #7b1fa2;
+        }
+        
+        .dimension-letter.j {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        
+        .dimension-letter.p {
+            background-color: #fff3e0;
+            color: #ef6c00;
+        }
+        
+        .dimension-description {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .restart-btn {
+            margin: 30px auto 0;
+            background-color: #4CAF50;
+            display: inline-flex;
+        }
+        
+        .restart-btn:hover {
+            background-color: #3d8b40;
+        }
+        
+        .restart-btn::before {
+            content: "🔄";
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #666;
+            font-size: 0.9rem;
+            border-top: 1px solid #eaeef5;
+            margin-top: 20px;
+            background-color: #f8fafd;
+        }
+        
+        .notes-section {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f7ff;
+            border-radius: 8px;
+            border-left: 4px solid #1a5f9e;
+        }
+        
+        .notes-section h4 {
+            color: #0f4c81;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .notes-section h4::before {
+            content: "📌";
+        }
+        
+        .required::after {
+            content: " *";
+            color: #e53935;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                border-radius: 15px;
+            }
+            
+            header {
+                padding: 25px 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .options {
+                grid-template-columns: 1fr;
+            }
+            
+            .quiz-container, .result {
+                padding: 20px;
+            }
+            
+            .result-content {
+                flex-direction: column;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            button {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .dimensions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .print-btn {
+            background-color: #6c757d;
+            margin-left: 15px;
+        }
+        
+        .print-btn:hover {
+            background-color: #545b62;
+        }
+        
+        .print-btn::before {
+            content: "🖨️";
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Testi për Orientim në Karrierë</h1>
+            <p class="subtitle">Për Nxënësit e Klasës së Nëntë - Zbuloni talentet dhe interesat tuaja për të zgjedhur rrugën e duhur</p>
+        </header>
+        
+        <div class="main-content">
+            <div class="student-info-section" id="student-info">
+                <h3>Informacioni i Nxënësit</h3>
+                <div class="info-form">
+                    <div class="form-group">
+                        <label for="student-name" class="required">Emri dhe Mbiemri</label>
+                        <input type="text" id="student-name" placeholder="Shkruani emrin dhe mbiemrin tuaj">
+                    </div>
+                    <div class="form-group">
+                        <label for="school" class="required">Shkolla</label>
+                        <input type="text" id="school" placeholder="Emri i shkollës suaj">
+                    </div>
+                    <div class="form-group">
+                        <label for="city" class="required">Qyteti</label>
+                        <input type="text" id="city" placeholder="Qyteti ku ndodhet shkolla">
+                    </div>
+                    <div class="form-group">
+                        <label for="birthdate">Data e lindjes</label>
+                        <input type="date" id="birthdate">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="email@shembull.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="preferred-field">Fusha më e preferuar aktualisht</label>
+                        <select id="preferred-field">
+                            <option value="">Zgjidhni një fushë</option>
+                            <option value="shkenca">Shkencat Natyrore</option>
+                            <option value="shoqerore">Shkencat Shoqërore</option>
+                            <option value="teknik">Teknika dhe Teknologjia</option>
+                            <option value="arte">Artet dhe Dizajni</option>
+                            <option value="shendet">Shëndetësia</option>
+                            <option value="biznes">Biznesi dhe Menaxhimi</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="notes-section">
+                    <h4>Shënime për nxënësin</h4>
+                    <p>Ky test është krijuar për të ndihmuar në zbulimin e interesave dhe talenteve tuaja. Përgjigjet e sakta ose të gabuara nuk ekzistojnë - çdo përgjigje ndihmon në krijimin e një profili më të saktë për ju. Ju lutemi plotësoni të gjitha fushat e shënuara me *.</p>
+                </div>
+                <button id="start-quiz-btn" style="margin-top: 20px;">Filloni testin</button>
+            </div>
+            
+            <div class="quiz-container" id="quiz-section" style="display: none;">
+                <div class="progress-container">
+                    <div class="progress-header">
+                        <div class="progress-text">Pyetja <span id="current-q">1</span> nga 20</div>
+                        <div class="progress-percent" id="progress-percent">5%</div>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" id="progress"></div>
+                    </div>
+                </div>
+                
+                <!-- Pyetjet e testit -->
+                <div class="question active" id="q1">
+                    <h2><span class="question-number">1</span><span class="question-text">Kur keni kohë të lirë, çfarë aktiviteti preferoni?</span></h2>
+                    <div class="options">
+                        <div class="option" data-value="I">
+                            <div class="option-indicator">A</div>
+                            <div>Të lexoni një libër ose të mësoni diçka të re në internet</div>
+                        </div>
+                        <div class="option" data-value="E">
+                            <div class="option-indicator">B</div>
+                            <div>Të dilni me miqtë ose të merrni pjesë në aktivitete sociale</div>
+                        </div>
+                        <div class="option" data-value="S">
+                            <div class="option-indicator">C</div>
+                            <div>Të bëni diçka praktike (riparime, gatim, projekt kreativ)</div>
+                        </div>
+                        <div class="option" data-value="N">
+                            <div class="option-indicator">D</div>
+                            <div>Të imagjinoni ide të reja ose të planifikoni të ardhmen</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question" id="q2">
+                    <h2><span class="question-number">2</span><span class="question-text">Në një projekt shkolle, çfarë roli ju përshtatet më shumë?</span></h2>
+                    <div class="options">
+                        <div class="option" data-value="T">
+                            <div class="option-indicator">A</div>
+                            <div>Të analizoni të dhënat dhe të merrni vendime logjike</div>
+                        </div>
+                        <div class="option" data-value="F">
+                            <div class="option-indicator">B</div>
+                            <div>Të siguroheni që të gjithë ndihen të përfshirë dhe të motivuar</div>
+                        </div>
+                        <div class="option" data-value="J">
+                            <div class="option-indicator">C</div>
+                            <div>Të organizoni detyrat dhe të ndiqni një plan të caktuar</div>
+                        </div>
+                        <div class="option" data-value="P">
+                            <div class="option-indicator">D</div>
+                            <div>Të jeni fleksibël dhe të gatshëm për të ndryshuar planin nëse është e nevojshme</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question" id="q3">
+                    <h2><span class="question-number">3</span><span class="question-text">Si e përshkruani mënyrën tuaj të të menduarit?</span></h2>
+                    <div class="options">
+                        <div class="option" data-value="S">
+                            <div class="option-indicator">A</div>
+                            <div>Konkret dhe praktik - përqendrohem në realitetin e tanishëm</div>
+                        </div>
+                        <div class="option" data-value="N">
+                            <div class="option-indicator">B</div>
+                            <div>Imagjinativ dhe teorik - shikoj mundësitë dhe lidhjet e ardhshme</div>
+                        </div>
+                        <div class="option" data-value="T">
+                            <div class="option-indicator">C</div>
+                            <div>Logjik dhe objektiv - vendimet i bazoj në logjikë dhe fakte</div>
+                        </div>
+                        <div class="option" data-value="F">
+                            <div class="option-indicator">D</div>
+                            <div>Empatik dhe subjektiv - marr parasysh ndjenjat e njerëzve</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question" id="q4">
+                    <h2><span class="question-number">4</span><span class="question-text">Kur duhet të merrni një vendim të rëndësishëm, çfarë bëni?</span></h2>
+                    <div class="options">
+                        <div class="option" data-value="T">
+                            <div class="option-indicator">A</div>
+                            <div>Kërkoni të dhëna dhe analizoni avantazhet dhe disavantazhet</div>
+                        </div>
+                        <div class="option" data-value="F">
+                            <div class="option-indicator">B</div>
+                            <div>Konsultoheni me të tjerët dhe merrni parasysh ndikimin emocional</div>
+                        </div>
+                        <div class="option" data-value="J">
+                            <div class="option-indicator">C</div>
+                            <div>Bëni një listë dhe ndiqni një proces të organizuar</div>
+                        </div>
+                        <div class="option" data-value="P">
+                            <div class="option-indicator">D</div>
+                            <div>Prisni deri në momentin e fundit për të pasur më shumë informacion</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question" id="q5">
+                    <h2><span class="question-number">5</span><span class="question-text">Cila lëndë shkollore ju tërheq më shumë?</span></h2>
+                    <div class="options">
+                        <div class="option" data-value="T">
+                            <div class="option-indicator">A</div>
+                            <div>Matematika ose shkencat e sakta</div>
+                        </div>
+                        <div class="option" data-value="F">
+                            <div class="option-indicator">B</div>
+                            <div>Letërsia, arti ose shkencat shoqërore</div>
+                        </div>
+                        <div class="option" data-value="S">
+                            <div class="option-indicator">C</div>
+                            <div>Edukata fizike ose shkencat e aplikuara</div>
+                        </div>
+                        <div class="option" data-value="N">
+                            <div class="option-indicator">D</div>
+                            <div>Fizika, kimia ose lëndët teknologjike</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question" id="q6">
+                    <h2><span class="question-number">6</span><span class="question-text">Kur dikush ka një problem, si reagoni zakonisht?</span></h2>
+                    <div class="options">
+                        <div class="option" data-value="F">
+                            <div class="option-indicator">A</div>
+                            <div>Dëgjoni me kujdes dhe ofroni mbështetje emocionale</div>
+                        </div>
+                        <div class="option" data-value="T">
+                            <div class="option-indicator">B</div>
+                            <div>Ofroni zgjidhje praktike dhe logjike për problemin</div>
+                        </div>
+                        <div class="option" data-value="J">
+                            <div class="option-indicator">C</div>
+                            <div>Krijoni një plan hap pas hapi për ta zgjidhur problemin</div>
+                        </div>
+                        <div class="option" data-value="P">
+                            <div class="option-indicator">D</div>
+                            <div>Sugjeroni qasje të ndryshme dhe eksploroni alternativa</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question" id="q7">
+                    <h2><span class="question-number">7</span><span class="question-text">Si e kaloni më së miri kohën tuaj në shkollë?</span></h2>
+                    <div class="options">
+                        <div class="option" data-value="I">
+                            <div class="option-indicator">A</div>
+                            <div>Duke punuar në mënyrë të pavarur në projektet tuaja</div>
+                        </div>
+                        <div class="option" data-value="E">
+                            <div class="option-indicator">B</div>
+                            <div>Duke bashkëpunuar me të tjerët në diskutime dhe projekte grupore</div>
+                        </div>
+                        <div class="option" data-value="S">
+                            <div class="option-indicator">C</div>
+                            <div>Duke zbatuar njohuritë në projekte praktike dhe eksperimente</div>
+                        </div>
+                        <div class="option" data-value="N">
+                            <div class="option-indicator">D</div>
+                            <div>Duke eksploruar ide të reja dhe duke bërë lidhje midis koncepteve</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question" id="q8">
+                    <h2><span class="question-number">8</span><span class="question-text">Si përshkruani mënyrën tuaj të punës?</span></h2>
+                    <div class="options">
+                        <div class="option" data-value="J">
+                            <div class="option-indicator">A</div>
+                            <div>Të organizuar, me plane të qarta dhe afate të përcaktuara</div>
+                        </div>
+                        <div class="option" data-value="P">
+                            <div class="option-indicator">B</div>
+                            <div>Fleksibël, duke u përshtatur me situatat e reja ndërsa shkoni</div>
+                        </div>
+                        <div class="option" data-value="E">
+                            <div class="option-indicator">C</div>
+                            <div>Bashkëpunuese, duke punuar mirë me të tjerët</div>
+                        </div>
+                        <div class="option" data-value="I">
+                            <div class="option-indicator">D</div>
+                            <div>Të pavarur, duke preferuar të punoni vetë</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question" id="q9">
+                    <h2><span class="question-number">9</span><span class="question-text">Cila është qasja juaj ndaj sfidave të reja?</span></h2>
+                    <div class="options">
+                        <div class="option" data-value="N">
+                            <div class="option-indicator">A</div>
+                            <div>Jam i eksituar nga mundësia për të provuar diçka krejtësisht të re</div>
+                        </div>
+                        <div class="option" data-value="S">
+                            <div class="option-indicator">B</div>
+                            <div>Preferoj të filloj me diçka të njohur dhe të ndërtoj mbi të</div>
+                        </div>
+                        <div class="option" data-value="T">
+                            <div class="option-indicator">C</div>
+                            <div>Analizoj situatën dhe krijoj një strategji bazuar në të dhëna</div>
+                        </div>
+                        <div class="option" data-value="F">
+                            <div class="option-indicator">D</div>
+                            <div>Konsultohem me të tjerët dhe marr parasysh ndikimin njerëzor</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question" id="q10">
+                    <h2><span class="question-number">10</span><span class="question-text">Cili është përshkrimi më i mirë i vendit tuaj ideal të punës?</span></h2>
+                    <div class="options">
+                        <div class="option" data-value="E">
+                            <div class="option-indicator">A</div>
+                            <div>Një mjedis social me shumë bashkëpunim dhe takime</div>
+                        </div>
+                        <div class="option" data-value="I">
+                            <div class="option-indicator">B</div>
+                            <div>Një hapësirë të qetë ku mund të përqendrohem pa shumë ndërhyrje</div>
+                        </div>
+                        <div class="option" data-value="J">
+                            <div class="option-indicator">C</div>
+                            <div>Një vend ku detyrat janë të qarta dhe proceset janë të përcaktuara</div>
+                        </div>
+                        <div class="option" data-value="P">
+                            <div class="option-indicator">D</div>
+                            <div>Një mjedis dinamik ku gjërat ndryshojnë dhe nuk bëhet monotoni</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question" id="q11">
+                    <h2><span class="question-number">11</span><span class="question-text">Çfarë lloj problemesh ju pëlqen t'i zgjidhni?</span></h2>
+                    <div class="options">
+                        <div class="option" data-value="T">
+                            <div class="option-indicator">A</div>
+                            <div>Probleme matematikore ose logjike</div>
+                        </div>
+                        <div class="option" data-value="F">
+                            <div class="option-indicator">B</div>
+                            <div>Konflikte ndërnjerëzore ose situata emocionale</div>
+                        </div>
+                        <div class="option" data-value="S">
+                            <div class="option-indicator">C</div>
+                            <div>Probleme praktike që kërkojnë zgjidhje të menjëhershme</div>
+                        </div>
+                        <div class="option" data-value="N">
+                            <div class="option-indicator">D</div>
+                            <div>Probleme komplekse që kërkojnë mendim kreativ</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question" id="q12">
+                    <h2><span class="question-number">12</span><span class="question-text">Si përballeni me stresin?</span></h2>
+                    <div class="options">
+                        <div class="option" data-value="J">
+                            <div class="option-indicator">A</div>
+                            <div>Bëj një plan dhe ndaj detyrat në hapa të vegjël</div>
+                        </div>
+                        <div class="option" data-value="P">
+                            <div class="option-indicator">B</div>
+                            <div>Pres deri në fund dhe më pas punoj me intensitet</div>
+                        </div>
+                        <div class="option" data-value="E">
+                            <div class="option-indicator">C</div>
+                            <div>Flas me të tjerët dhe kërkoj mbështetje sociale</div>
+                        </div>
+                        <div class="option" data-value="I">
+                            <div class="option-indicator">D</div>
+                            <div>Kërkoj kohë vetëm për të reflektuar dhe rilaksuar</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question" id="q13">
+                    <h2><span class="question-number">13</span><span class="question-text">Çfarë ju motivon më shumë në punë?</span></h2>
+                    <div class="options">
+                        <div class="option" data-value="T">
+                            <div class="option-indicator">A</div>
+                            <div>Mundësia për të zgjidhur probleme komplekse</div>
+                        </div>
+                        <div class="option" data-value="F">
+                            <div class="option-indicator">B</div>
+                            <div>Mundësia për të ndihmuar njerëzit e tjerë</div>
+                        </div>
+                        <div class="option" data-value="S">
+                            <div class="option-indicator">C</div>
+                            <div>Mundësia për të parë rezultatet konkrete të punës</div>
+                        </div>
+                        <div class="option" data-value="N">
+                            <div class="option-indicator">D</div>
+                            <div>Mundësia për të shpikur diçka të re ose inovative</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question" id="q14">
+                    <h2><span class="question-number">14</span><span class="question-text">Si e përshkruani stilin tuaj të komunikimit?</span></h2>
+                    <div class="options">
+                        <div class="option" data-value="E">
+                            <div class="option-indicator">A</div>
+                            <div>I hapur dhe ekspresiv, pëlqej të flas me njerëz të rinj</div>
+                        </div>
+                        <div class="option" data-value="I">
+                            <div class="option-indicator">B</div>
+                            <div>I rezervuar, preferoj komunikimin një-me-një</div>
+                        </div>
+                        <div class="option" data-value="J">
+                            <div class="option-indicator">C</div>
+                            <div>I qartë dhe direkt, duke u përqëndruar në fakte</div>
+                        </div>
+                        <div class="option" data-value="P">
+                            <div class="option-indicator">D</div>
+                            <div>I fleksibël, ndryshoj stilin sipas situatës</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question" id="q15">
+                    <h2><span class="question-number">15</span><span class="question-text">Çfarë lloj informacioni ju kujtohet më lehtë?</span></h2>
+                    <div class="options">
+                        <div class="option" data-value="S">
+                            <div class="option-indicator">A</div>
+                            <div>Fakte specifike dhe detaje praktike</div>
+                        </div>
+                        <div class="option" data-value="N">
+                            <div class="option-indicator">B</div>
+                            <div>Konceptet e përgjithshme dhe lidhjet ndërmjet ideve</div>
+                        </div>
+                        <div class="option" data-value="T">
+                            <div class="option-indicator">C</div>
+                            <div>Parimet logjike dhe strukturat sistematike</div>
+                        </div>
+                        <div class="option" data-value="F">
+                            <div class="option-indicator">D</div>
+                            <div>Informacione që kanë rëndësi personale ose emocionale</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question" id="q16">
+                    <h2><span class="question-number">16</span><span class="question-text">Si i trajtoni gabimet tuaja?</span></h2>
+                    <div class="options">
+                        <div class="option" data-value="T">
+                            <div class="option-indicator">A</div>
+                            <div>I analizoj për të marrë mësim dhe për tu përmirësuar</div>
+                        </div>
+                        <div class="option" data-value="F">
+                            <div class="option-indicator">B</div>
+                            <div>Më vjen keq dhe përpiqem të mos i përsëris</div>
+                        </div>
+                        <div class="option" data-value="J">
+                            <div class="option-indicator">C</div>
+                            <div>Krijoj një sistem për të shmangur gabime të ngjashme në të ardhmen</div>
+                        </div>
+                        <div class="option" data-value="P">
+                            <div class="option-indicator">D</div>
+                            <div>I konsideroj si pjesë të procesit të të mësuarit</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question" id="q17">
+                    <h2><span class="question-number">17</span><span class="question-text">Çfarë lloj projektesh ju tërheqin më shumë?</span></h2>
+                    <div class="options">
+                        <div class="option" data-value="N">
+                            <div class="option-indicator">A</div>
+                            <div>Projekte që kërkojnë krijimtari dhe inovacion</div>
+                        </div>
+                        <div class="option" data-value="S">
+                            <div class="option-indicator">B</div>
+                            <div>Projekte me rezultate të qarta dhe të matshme</div>
+                        </div>
+                        <div class="option" data-value="T">
+                            <div class="option-indicator">C</div>
+                            <div>Projekte që kërkojnë analizë të thellë dhe planifikim strategjik</div>
+                        </div>
+                        <div class="option" data-value="F">
+                            <div class="option-indicator">D</div>
+                            <div>Projekte që ndihmojnë njerëzit ose komunitetin</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question" id="q18">
+                    <h2><span class="question-number">18</span><span class="question-text">Si mendoni për të ardhmen tuaj profesionale?</span></h2>
+                    <div class="options">
+                        <div class="option" data-value="J">
+                            <div class="option-indicator">A</div>
+                            <div>Kam qëllime të qarta dhe një plan për t'i arritur ato</div>
+                        </div>
+                        <div class="option" data-value="P">
+                            <div class="option-indicator">B</div>
+                            <div>Preferoj të jem i hapur për mundësi të reja që dalin</div>
+                        </div>
+                        <div class="option" data-value="E">
+                            <div class="option-indicator">C</div>
+                            <div>Dua një karrierë që më lejon të ndërveproj me shumë njerëz</div>
+                        </div>
+                        <div class="option" data-value="I">
+                            <div class="option-indicator">D</div>
+                            <div>Dua një karrierë që më lejon të përqendrohem thellë në një fushë</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question" id="q19">
+                    <h2><span class="question-number">19</span><span class="question-text">Çfarë vlerësoni më shumë në një punë?</span></h2>
+                    <div class="options">
+                        <div class="option" data-value="T">
+                            <div class="option-indicator">A</div>
+                            <div>Mundësia për të përdorur mendimin kritik dhe logjikën</div>
+                        </div>
+                        <div class="option" data-value="F">
+                            <div class="option-indicator">B</div>
+                            <div>Mundësia për të ndihmuar të tjerët dhe për të bërë ndryshim</div>
+                        </div>
+                        <div class="option" data-value="S">
+                            <div class="option-indicator">C</div>
+                            <div>Stabiliteti dhe qartësia e pritshme në detyrat e përditshme</div>
+                        </div>
+                        <div class="option" data-value="N">
+                            <div class="option-indicator">D</div>
+                            <div>Mundësia për të eksploruar ide të reja dhe për të krijuar</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="question" id="q20">
+                    <h2><span class="question-number">20</span><span class="question-text">Si përgjigjeni ndaj kritikës?</span></h2>
+                    <div class="options">
+                        <div class="option" data-value="T">
+                            <div class="option-indicator">A</div>
+                            <div>E analizoj për të parë nëse ka të vërteta dhe për të përmirësuar</div>
+                        </div>
+                        <div class="option" data-value="F">
+                            <div class="option-indicator">B</div>
+                            <div>Ndikohem emocionalisht dhe përpiqem të kuptoj ndjenjat pas saj</div>
+                        </div>
+                        <div class="option" data-value="J">
+                            <div class="option-indicator">C</div>
+                            <div>E marr si udhëzime specifike për të ndryshuar sjelljen time</div>
+                        </div>
+                        <div class="option" data-value="P">
+                            <div class="option-indicator">D</div>
+                            <div>E konsideroj si një pikëpamje tjetër dhe vazhdoj pa u ndërprerë shumë</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation">
+                    <button id="prev-btn" disabled>
+                        <span>←</span> Prapa
+                    </button>
+                    <button id="next-btn">
+                        Pyetja Tjetër <span>→</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="result" id="result">
+                <div class="result-header">
+                    <h2>Rezultatet e testit tuaj për Orientim në Karrierë</h2>
+                    <p>Këtu janë rezultatet bazuar në përgjigjet tuaja dhe informacionin e dhënë</p>
+                </div>
+                
+                <div class="result-content">
+                    <div class="personality-card">
+                        <h3 class="card-title">📊 Profili Juaj</h3>
+                        <div id="nxënës-summary"></div>
+                        <div class="personality-type" id="personality-result"></div>
+                        <p id="personality-description"></p>
+                        <div class="notes-section" style="margin-top: 20px;">
+                            <h4>Aftësitë tuaja kryesore:</h4>
+                            <p id="strengths-list"></p>
+                        </div>
+                    </div>
+                    
+                    <div class="career-card">
+                        <h3 class="card-title">🎯 Sugjerime për karrierë</h3>
+                        <p>Bazuar në profilin tuaj, këto janë disa fusha karriere që mund t'ju përshtaten:</p>
+                        <div class="career-list" id="career-list"></div>
+                        <div class="notes-section" style="margin-top: 20px;">
+                            <h4>Hapat e ardhshëm:</h4>
+                            <p>1. Diskutoni këto rezultate me këshilltarin për karrierë<br>
+                               2. Eksploroni profesione të ndryshme përmes praktikës<br>
+                               3. Flisni me profesionistë në fusha që ju interesojnë<br>
+                               4. Ndiqni lëndë zgjedhore që korrespondojnë me interesat tuaja</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="student-notes">
+                    <h3>Shënime të Rëndësishme për Ju</h3>
+                    <div id="personalized-notes"></div>
+                    <p><strong>Kujdes:</strong> Ky test është një mjet orientimi dhe jo një test psikologjik zyrtar. Rezultatet ofrojnë udhëzime të përgjithshme dhe duhet të përdoren si pikënisje për eksplorim të mëtejshëm.</p>
+                </div>
+                
+                <!-- Seksioni i ri për shpjegimin e shkurtesave -->
+                <div class="personality-explanation">
+                    <h3>Çfarë paraqesin shkurtesat e personalitetit?</h3>
+                    <p>Profili juaj i personalitetit përbëhet nga 4 shkronja. Çdo shkronjë përfaqëson një dimension të personalitetit tuaj. Këtu është shpjegimi i secilës shkronjë:</p>
+                    
+                    <div class="dimensions-grid">
+                        <div class="dimension">
+                            <div class="dimension-title">
+                                <span>Dimensioni 1: Energjia</span>
+                                <div class="dimension-letters">
+                                    <span class="dimension-letter e">E</span>
+                                    <span class="dimension-letter i">I</span>
+                                </div>
+                            </div>
+                            <div class="dimension-description">
+                                <p><strong>E - Ekstravert</strong>: Merreni energji nga ndërveprimet sociale. Ju pëlqen të jeni me njerëz, të flisni me të tjerët dhe të jeni në qendra të vëmendjes.</p>
+                                <p><strong>I - Introvert</strong>: Merreni energji nga koha e vetme. Ju pëlqen të reflektoni, të punoni në mënyrë të pavarur dhe të keni kohë për veten tuaj.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="dimension">
+                            <div class="dimension-title">
+                                <span>Dimensioni 2: Informacioni</span>
+                                <div class="dimension-letters">
+                                    <span class="dimension-letter s">S</span>
+                                    <span class="dimension-letter n">N</span>
+                                </div>
+                            </div>
+                            <div class="dimension-description">
+                                <p><strong>S - Sensorial</strong>: Përqendroheni në informacionin konkret dhe real. Ju jeni praktik, i fokusuar në faktet dhe detajet e tanishme.</p>
+                                <p><strong>N - Intuitiv</strong>: Përqendroheni në modele dhe mundësi. Ju jeni imagjinativ, i fokusuar në të ardhmen dhe kuptimin e gjërave.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="dimension">
+                            <div class="dimension-title">
+                                <span>Dimensioni 3: Vendimet</span>
+                                <div class="dimension-letters">
+                                    <span class="dimension-letter t">T</span>
+                                    <span class="dimension-letter f">F</span>
+                                </div>
+                            </div>
+                            <div class="dimension-description">
+                                <p><strong>T - Mendim</strong>: Merrni vendime bazuar në logjikë dhe objektivitet. Ju jeni analitik, i drejtë dhe i fokusuar në drejtësi.</p>
+                                <p><strong>F - Ndjenjë</strong>: Merrni vendime bazuar në vlera dhe ndjenja. Ju jeni i ndjeshëm, harmonik dhe i fokusuar në marrëdhëniet.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="dimension">
+                            <div class="dimension-title">
+                                <span>Dimensioni 4: Jeta</span>
+                                <div class="dimension-letters">
+                                    <span class="dimension-letter j">J</span>
+                                    <span class="dimension-letter p">P</span>
+                                </div>
+                            </div>
+                            <div class="dimension-description">
+                                <p><strong>J - Gjykim</strong>: Preferoni strukturën dhe planifikimin. Ju jeni i organizuar, vendimmarrës dhe pëlqeni të keni gjërat të vendosura.</p>
+                                <p><strong>P - Perceptim</strong>: Preferoni fleksibilitetin dhe spontanitetin. Ju jeni i adaptueshëm, kureshtar dhe pëlqeni të mbani opsionet e hapura.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="notes-section" style="margin-top: 20px;">
+                        <h4>Shembuj të shkurtesave:</h4>
+                        <p><strong>ENFP</strong>: Ekstravert + Intuitiv + Ndjenjë + Perceptim - Person kreativ, entuziast dhe i frymëzuar që pëlqen të ndihmojë të tjerët.</p>
+                        <p><strong>ISTJ</strong>: Introvert + Sensorial + Mendim + Gjykim - Person i organizuar, praktik dhe i përgjegjshëm që respekton rregullat dhe procedurat.</p>
+                        <p><strong>INTJ</strong>: Introvert + Intuitiv + Mendim + Gjykim - Person strategjik, i pavarur dhe me mendim kritik që planifikon për të ardhmen.</p>
+                        <p><strong>ESFJ</strong>: Ekstravert + Sensorial + Ndjenjë + Gjykim - Person mikpritës, bashkëpunues dhe i kujdesshëm që vlerëson harmoninë sociale.</p>
+                    </div>
+                </div>
+                
+                <button class="restart-btn" id="restart-btn">Bëni testin Përsëri</button>
+                <button class="print-btn" id="print-btn">Printo Rezultatet</button>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Ky test për orientim në karrierë është krijuar për nxënësit e klasës së nëntë për të ndihmuar në zbulimin e interesave dhe talenteve të tyre.</p>
+            <p><strong>Këshillë:</strong> Konsultohuni gjithmonë me këshilltarin për karrierë për udhëzime më të hollësishme dhe personale.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Elementet DOM
+            const studentInfoSection = document.getElementById('student-info');
+            const quizSection = document.getElementById('quiz-section');
+            const resultSection = document.getElementById('result');
+            const startQuizBtn = document.getElementById('start-quiz-btn');
+            const questions = document.querySelectorAll('.question');
+            const options = document.querySelectorAll('.option');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const progress = document.getElementById('progress');
+            const progressPercent = document.getElementById('progress-percent');
+            const currentQ = document.getElementById('current-q');
+            const restartBtn = document.getElementById('restart-btn');
+            const printBtn = document.getElementById('print-btn');
+            const personalityResult = document.getElementById('personality-result');
+            const personalityDescription = document.getElementById('personality-description');
+            const careerList = document.getElementById('career-list');
+            const studentSummary = document.getElementById('nxënës-summary');
+            const strengthsList = document.getElementById('strengths-list');
+            const personalizedNotes = document.getElementById('personalized-notes');
+            
+            // Variablat e testit
+            let currentQuestion = 0;
+            const totalQuestions = questions.length;
+            const answers = new Array(totalQuestions).fill(null);
+            const personalityScores = {
+                'E': 0, 'I': 0, // Ekstravert vs Introvert
+                'S': 0, 'N': 0, // Sensorial vs Intuitiv
+                'T': 0, 'F': 0, // Mendim vs Ndjenjë
+                'J': 0, 'P': 0  // Gjykim vs Perceptim
+            };
+            
+            // Informacioni i studentit
+            let studentInfo = {
+                name: '',
+                school: '',
+                city: '',
+                birthdate: '',
+                email: '',
+                preferredField: ''
+            };
+            
+            // Përshkrimet e llojeve të personalitetit
+            const personalityTypes = {
+                'ISTJ': 'I organizuar dhe i përgjegjshëm, i fokusuar në detaje dhe faktet. Preferon struktura të qarta dhe procese të përcaktuara.',
+                'ISFJ': 'I kujdesshëm dhe i përkushtuar, me ndjenjë të fortë të detyrës. Vlerëson harmoninë dhe ndihmon të tjerët në mënyrë praktike.',
+                'INFJ': 'Ideativ dhe i përqendruar, me vizion për të ardhmen. Kërkon kuptim dhe qëllim në punën e tyre.',
+                'INTJ': 'Strateg dhe i pavarur, me mendim kritik. Planifikon për të ardhmen dhe kërkon zgjidhje inovative për problemet komplekse.',
+                'ISTP': 'Fleksibël dhe praktik, i shpejtë në zgjidhjen e problemeve. Pëlqen të punojë me duart e tij dhe të eksperimentojë.',
+                'ISFP': 'Artistik dhe i ndjeshëm, i përqendruar në momentin e tanishëm. Vlerëson lirinë dhe shprehjen personale.',
+                'INFP': 'Idealist dhe kreativ, me vlera të forta personale. Kërkon punë ku mund të ndihmojë të tjerët dhe të kontribuojë në një qëllim më të madh.',
+                'INTP': 'Inventiv dhe analitik, i interesuar në modele dhe parime abstrakte. Kërkon të kuptojë sistemet dhe teoritë komplekse.',
+                'ESTP': 'Energjik dhe i zgjuar, i shpejtë në veprim. Pëlqen të jetë në veprim dhe të zgjidhë problemet në kohë reale.',
+                'ESFP': 'Social dhe spontan, duke u përqëndruar në gëzimin dhe argëtimin e të tjerëve. I përshtatshëm dhe praktik.',
+                'ENFP': 'Entuziast dhe krijues, me energji pafund. Gjen lidhje midis njerëzve dhe ideve, duke nxitur ndryshimin.',
+                'ENTP': 'I zgjuar dhe kureshtar, i shkëlqyer në debat dhe zgjidhjen kreative të problemeve. Kërkon sfida intelektuale.',
+                'ESTJ': 'Praktik dhe realist, i shkëlqyer në organizim dhe menaxhim. Vendos rregulla dhe struktura për efikasitet.',
+                'ESFJ': 'Mikpritës dhe bashkëpunues, duke u kujdesur për nevojat e të tjerëve. Punon mirë në ambiente të organizuara.',
+                'ENFJ': 'Karizmatik dhe inspirues, duke motivuar të tjerët për të arritur potencialin e tyre. Natyrë e ngrohtë dhe mbështetëse.',
+                'ENTJ': 'Vendimtar dhe strategjik, i natyrshëm në udhëheqje. Planifikon për të ardhmen dhe drejton me efikasitet.'
+            };
+            
+            // Sugjerime për karrierë sipas llojit të personalitetit
+            const careerSuggestions = {
+                'ISTJ': ['Kontabilist', 'Administrator', 'Oficer ushtarak', 'Mjek', 'Inxhinier', 'Auditor', 'Bibliotekar', 'Analist të dhënash'],
+                'ISFJ': ['Infermiere', 'Mësues', 'Bibliotekar', 'Asistent social', 'Terapist', 'Kujdestar', 'Farmacist', 'Nutricionist'],
+                'INFJ': ['Psikolog', 'Këshilltar', 'Shkrimtar', 'Mjek', 'Klerik', 'Terapist arti', 'Mësues special', 'Hulumtues shkencor'],
+                'INTJ': ['Shkencëtar', 'Inxhinier', 'Avokat', 'Programues', 'Strateg biznesi', 'Arkitekt', 'Analist sistemi', 'Hulumtues'],
+                'ISTP': ['Polic', 'Mekanik', 'Pilot', 'Inxhinier', 'Atlet profesionist', 'Teknik laboratori', 'Teknik kompjuteri', 'Zhvillues softueri'],
+                'ISFP': ['Artist', 'Dizajner', 'Muzikant', 'Fotograf', 'Veteriner', 'Florist', 'Stilist', 'Kuzhinier'],
+                'INFP': ['Shkrimtar', 'Psikolog', 'Dizajner grafiku', 'Këshilltar', 'Bibliotekar', 'Editor', 'Terapist', 'Kërkimtar'],
+                'INTP': ['Programues', 'Matematikan', 'Filozof', 'Fizikant', 'Hulumtues shkencor', 'Analist', 'Arkivist', 'Konsulent teknologjik'],
+                'ESTP': ['Tregtar', 'Ndërmarrës', 'Sportist', 'Reporter', 'Agjent shitjesh', 'Menaxher projekti', 'Polic', 'Trajner'],
+                'ESFP': ['Prezentues', 'Organizator eventesh', 'Stilist', 'Trajner', 'Artist performues', 'Recepsionist', 'Menaxher hoteli', 'Instruktor fitness'],
+                'ENFP': ['Gazetar', 'Psikolog', 'Politikan', 'Dizajner reklamash', 'Marrëdhënie publike', 'Mësues', 'Konsulent', 'Organizator komunitar'],
+                'ENTP': ['Avokat', 'Inxhinier', 'Zhvillues biznesi', 'Reporter', 'Shkencëtar', 'Konsulent', 'Analist tregu', 'Drejtor kreativ'],
+                'ESTJ': ['Menaxher', 'Mësues', 'Oficer ushtarak', 'Kontabilist', 'Drejtor banke', 'Drejtor projekti', 'Inspektor', 'Analist financiar'],
+                'ESFJ': ['Mësues', 'Infermiere', 'Menaxher hoteli', 'Asistent social', 'Kujdestar', 'Recepsionist', 'Koordinator eventesh', 'Konsulent klienti'],
+                'ENFJ': ['Mësues', 'Psikolog', 'Klerik', 'Trajner personal', 'Marrëdhënie publike', 'Konsulent karriere', 'Drejtor jo-fitimprurës', 'Terapist'],
+                'ENTJ': ['Drejtor ekzekutiv', 'Avokat', 'Menaxher', 'Inxhinier', 'Konsulent biznesi', 'Drejtor financiar', 'Analist strategjik', 'Drejtor projekti']
+            };
+            
+            // Aftësitë sipas llojit të personalitetit
+            const strengthsByType = {
+                'ISTJ': 'Besnikëri, përgjegjësi, organizim, pragmatizëm, vëmendje ndaj detajeve',
+                'ISFJ': 'Ndjeshmëri, kujdes, praktikë, besnikëri, ndihmë ndaj të tjerëve',
+                'INFJ': 'Krijimtari, empati, intuitë, përkushtim, vlera të forta',
+                'INTJ': 'Strategji, pavarësi, mendim kritik, planifikim, inovacion',
+                'ISTP': 'Fleksibilitet, zgjidhje problemesh, praktikë, kërkuesi, vetëkontroll',
+                'ISFP': 'Krijimtari, ndjeshmëri, adaptueshmëri, vëzhgim, mirësjellje',
+                'INFP': 'Krijimtari, empati, autenticitet, idealizëm, përkushtim',
+                'INTP': 'Analizë, kuriozitet, logjikë, objektivitet, zgjidhje problemesh',
+                'ESTP': 'Energji, spontanitet, praktikë, adaptueshmëri, vendimmarrje',
+                'ESFP': 'Socialitet, energji, praktikë, optimizëm, adaptueshmëri',
+                'ENFP': 'Krijimtari, entuziazëm, empati, komunikim, adaptueshmëri',
+                'ENTP': 'Kuriozitet, zgjuarsi, vendimmarrje, strategji, komunikim',
+                'ESTJ': 'Organizim, përgjegjësi, praktikë, drejtpërdrejtësi, efikasitet',
+                'ESFJ': 'Socialitet, ndihmë ndaj të tjerëve, organizim, mirësjellje, bashkëpunim',
+                'ENFJ': 'Inspirim, empati, komunikim, organizim, ndihmë ndaj të tjerëve',
+                'ENTJ': 'Vendimmarrje, strategji, organizim, drejtpërdrejtësi, efikasitet'
+            };
+            
+            // Validimi i formës së informacionit të studentit
+            function validateStudentInfo() {
+                const name = document.getElementById('student-name').value.trim();
+                const school = document.getElementById('school').value.trim();
+                const city = document.getElementById('city').value.trim();
+                
+                if (!name) {
+                    alert('Ju lutemi shkruani emrin dhe mbiemrin tuaj.');
+                    document.getElementById('student-name').focus();
+                    return false;
+                }
+                
+                if (!school) {
+                    alert('Ju lutemi shkruani emrin e shkollës suaj.');
+                    document.getElementById('school').focus();
+                    return false;
+                }
+                
+                if (!city) {
+                    alert('Ju lutemi shkruani qytetin ku ndodhet shkolla.');
+                    document.getElementById('city').focus();
+                    return false;
+                }
+                
+                // Ruaj informacionin e studentit
+                studentInfo.name = name;
+                studentInfo.school = school;
+                studentInfo.city = city;
+                studentInfo.birthdate = document.getElementById('birthdate').value;
+                studentInfo.email = document.getElementById('email').value.trim();
+                studentInfo.preferredField = document.getElementById('preferred-field').value;
+                
+                return true;
+            }
+            
+            // Përditëso progresin
+            function updateProgress() {
+                const progressValue = ((currentQuestion + 1) / totalQuestions) * 100;
+                progress.style.width = `${progressValue}%`;
+                progressPercent.textContent = `${Math.round(progressValue)}%`;
+                currentQ.textContent = currentQuestion + 1;
+                
+                // Përditëso butonat e navigimit
+                prevBtn.disabled = currentQuestion === 0;
+                
+                if (currentQuestion === totalQuestions - 1) {
+                    nextBtn.innerHTML = 'Shiko Rezultatet <span>→</span>';
+                } else {
+                    nextBtn.innerHTML = 'Pyetja Tjetër <span>→</span>';
+                }
+            }
+            
+            // Shfaq pyetjen aktuale
+            function showQuestion(index) {
+                questions.forEach((question, i) => {
+                    question.classList.toggle('active', i === index);
+                });
+                
+                // Thekso përgjigjen e zgjedhur nëse ekziston
+                if (answers[index] !== null) {
+                    const currentQuestionEl = questions[index];
+                    const optionsEl = currentQuestionEl.querySelectorAll('.option');
+                    optionsEl.forEach(option => {
+                        if (option.getAttribute('data-value') === answers[index]) {
+                            option.classList.add('selected');
+                        }
+                    });
+                }
+                
+                updateProgress();
+            }
+            
+            // Llogarit llojin e personalitetit
+            function calculatePersonalityType() {
+                // Përcakto çdo dimension të personalitetit
+                const extravertScore = personalityScores['E'];
+                const introvertScore = personalityScores['I'];
+                const sensingScore = personalityScores['S'];
+                const intuitionScore = personalityScores['N'];
+                const thinkingScore = personalityScores['T'];
+                const feelingScore = personalityScores['F'];
+                const judgingScore = personalityScores['J'];
+                const perceivingScore = personalityScores['P'];
+                
+                // Përcakto dimensionet
+                const firstLetter = extravertScore >= introvertScore ? 'E' : 'I';
+                const secondLetter = sensingScore >= intuitionScore ? 'S' : 'N';
+                const thirdLetter = thinkingScore >= feelingScore ? 'T' : 'F';
+                const fourthLetter = judgingScore >= perceivingScore ? 'J' : 'P';
+                
+                return firstLetter + secondLetter + thirdLetter + fourthLetter;
+            }
+            
+            // Krijo shënime të personalizuara
+            function createPersonalizedNotes(personalityType) {
+                let notes = '';
+                
+                // Shto shënime bazuar në llojin e personalitetit
+                const firstLetter = personalityType[0];
+                const secondLetter = personalityType[1];
+                const thirdLetter = personalityType[2];
+                const fourthLetter = personalityType[3];
+                
+                notes += `<p><strong>Bazuar në profilin tuaj (${personalityType}):</strong></p>`;
+                
+                if (firstLetter === 'E') {
+                    notes += '<p>• Ju jeni me natyrë ekstraverte, që do të thotë se ju jeni më energjik nga ndërveprimet sociale. Karrierat që përfshijnë punë me njerëz mund t\'ju përshtaten mirë.</p>';
+                } else {
+                    notes += '<p>• Ju jeni me natyrë introverte, që do të thotë se ju jeni më energjik kur jeni vetëm. Karrierat që lejojnë përqendrim të thellë dhe punë të pavarur mund t\'ju përshtaten më mirë.</p>';
+                }
+                
+                if (secondLetter === 'S') {
+                    notes += '<p>• Ju jeni i orientuar nga realiteti konkret dhe detajet praktike. Ju pëlqen të punoni me informacione të sakta dhe të zbatueshme.</p>';
+                } else {
+                    notes += '<p>• Ju jeni i orientuar nga mundësitë dhe idetë e ardhshme. Ju pëlqen të eksploroni koncepte të reja dhe të gjeni zgjidhje inovative.</p>';
+                }
+                
+                if (thirdLetter === 'T') {
+                    notes += '<p>• Ju merrni vendime bazuar në logjikë dhe objektivitet. Ju pëlqen të analizoni situatat dhe të gjeni zgjidhje racionale.</p>';
+                } else {
+                    notes += '<p>• Ju merrni vendime duke marrë parasysh ndjenjat dhe vlerat personale. Ju pëlqen të ndihmoni të tjerët dhe të krijoni harmoni.</p>';
+                }
+                
+                if (fourthLetter === 'J') {
+                    notes += '<p>• Ju preferoni strukturën dhe planifikimin. Ju jeni të organizuar dhe pëlqeni të keni kontroll mbi detyrat tuaja.</p>';
+                } else {
+                    notes += '<p>• Ju preferoni fleksibilitetin dhe spontanitetin. Ju përshtateni lehtësisht me ndryshimet dhe pëlqeni të eksploroni mundësi të reja.</p>';
+                }
+                
+                // Shto shënime bazuar në fushën e preferuar
+                if (studentInfo.preferredField) {
+                    const fieldNames = {
+                        'shkenca': 'Shkencat Natyrore',
+                        'shoqerore': 'Shkencat Shoqërore',
+                        'teknik': 'Teknika dhe Teknologjia',
+                        'arte': 'Artet dhe Dizajni',
+                        'shendet': 'Shëndetësia',
+                        'biznes': 'Biznesi dhe Menaxhimi'
+                    };
+                    
+                    notes += `<p>• Ju keni treguar interes për fushën e <strong>${fieldNames[studentInfo.preferredField] || studentInfo.preferredField}</strong>. Kjo është një pikënisje e mirë për të eksploruar karriera specifike në këtë fushë.</p>`;
+                }
+                
+                // Shto këshilla për klasën e nëntë
+                notes += '<p><strong>Këshilla për klasën e nëntë:</strong></p>';
+                notes += '<p>1. Eksploroni lëndë të ndryshme për të zbuluar interesat tuaja të vërteta<br>';
+                notes += '2. Flisni me profesionistë në fusha që ju interesojnë<br>';
+                notes += '3. Merrni pjesë në aktivitete jashtëshkollore për të zhvilluar aftësi të reja<br>';
+                notes += '4. Diskutoni me këshilltarët për karrierë për opsionet e arsimit të mëtejshëm</p>';
+                
+                return notes;
+            }
+            
+            // Krijo përmbledhje të studentit
+            function createStudentSummary() {
+                let summary = '';
+                
+                summary += `<p><strong>Emri:</strong> ${studentInfo.name}</p>`;
+                summary += `<p><strong>Shkolla:</strong> ${studentInfo.school}</p>`;
+                summary += `<p><strong>Qyteti:</strong> ${studentInfo.city}</p>`;
+                
+                if (studentInfo.birthdate) {
+                    summary += `<p><strong>Data e lindjes:</strong> ${studentInfo.birthdate}</p>`;
+                }
+                
+                if (studentInfo.preferredField) {
+                    const fieldNames = {
+                        'shkenca': 'Shkencat Natyrore',
+                        'shoqerore': 'Shkencat Shoqërore',
+                        'teknik': 'Teknika dhe Teknologjia',
+                        'arte': 'Artet dhe Dizajni',
+                        'shendet': 'Shëndetësia',
+                        'biznes': 'Biznesi dhe Menaxhimi'
+                    };
+                    
+                    summary += `<p><strong>Fusha e preferuar:</strong> ${fieldNames[studentInfo.preferredField] || studentInfo.preferredField}</p>`;
+                }
+                
+                return summary;
+            }
+            
+            // Shfaq rezultatet
+            function showResults() {
+                const personalityType = calculatePersonalityType();
+                
+                // Shfaq llojin e personalitetit dhe përshkrimin
+                personalityResult.textContent = personalityType;
+                personalityDescription.textContent = personalityTypes[personalityType];
+                
+                // Shfaq sugjerimet karrierore
+                const careers = careerSuggestions[personalityType];
+                careerList.innerHTML = '';
+                
+                careers.forEach(career => {
+                    const careerItem = document.createElement('div');
+                    careerItem.className = 'career-item';
+                    careerItem.textContent = career;
+                    careerList.appendChild(careerItem);
+                });
+                
+                // Shfaq forcat
+                strengthsList.textContent = strengthsByType[personalityType];
+                
+                // Krijo shënime të personalizuara
+                personalizedNotes.innerHTML = createPersonalizedNotes(personalityType);
+                
+                // Krijo përmbledhje të studentit
+                studentSummary.innerHTML = createStudentSummary();
+                
+                // Thekso shkronjat në shpjegimin e dimensioneve bazuar në personalitetin e studentit
+                highlightPersonalityLetters(personalityType);
+                
+                // Fshi testin dhe shfaq rezultatet
+                quizSection.style.display = 'none';
+                resultSection.style.display = 'block';
+                
+                // Scroll në fillim të faqes
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            
+            // Thekso shkronjat e personalitetit në seksionin e shpjegimit
+            function highlightPersonalityLetters(personalityType) {
+                const letters = personalityType.split('');
+                
+                // Gjej të gjitha shkronjat në seksionin e shpjegimit
+                const dimensionLetters = document.querySelectorAll('.dimension-letter');
+                
+                dimensionLetters.forEach(letterElement => {
+                    // Hiq klasën e theksuar të mëparshme
+                    letterElement.classList.remove('highlighted');
+                    
+                    // Kontrollo nëse kjo shkronjë përputhet me ndonjë nga shkronjat e personalitetit
+                    if (letters.includes(letterElement.textContent)) {
+                        letterElement.classList.add('highlighted');
+                        
+                        // Shto stil për theksim
+                        letterElement.style.boxShadow = '0 0 0 2px #1a5f9e';
+                        letterElement.style.fontWeight = 'bold';
+                        letterElement.style.transform = 'scale(1.1)';
+                    }
+                });
+            }
+            
+            // Event listener për butonin "Filloni testin"
+            startQuizBtn.addEventListener('click', function() {
+                if (validateStudentInfo()) {
+                    studentInfoSection.style.display = 'none';
+                    quizSection.style.display = 'block';
+                    showQuestion(currentQuestion);
+                }
+            });
+            
+            // Event listener për zgjedhjen e opsioneve
+            options.forEach(option => {
+                option.addEventListener('click', function() {
+                    const questionContainer = this.closest('.question');
+                    const questionId = Array.from(questions).indexOf(questionContainer);
+                    const value = this.getAttribute('data-value');
+                    
+                    // Ruaj përgjigjen
+                    answers[questionId] = value;
+                    
+                    // Shto rezultatin në scorin e personalitetit
+                    personalityScores[value]++;
+                    
+                    // Hiq zgjedhjen e mëparshme dhe shto të rejën
+                    const optionsInQuestion = questionContainer.querySelectorAll('.option');
+                    optionsInQuestion.forEach(opt => opt.classList.remove('selected'));
+                    this.classList.add('selected');
+                });
+            });
+            
+            // Event listener për butonin "Prapa"
+            prevBtn.addEventListener('click', function() {
+                if (currentQuestion > 0) {
+                    currentQuestion--;
+                    showQuestion(currentQuestion);
+                    
+                    // Scroll në fillim të pyetjes
+                    questions[currentQuestion].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+            
+            // Event listener për butonin "Para"
+            nextBtn.addEventListener('click', function() {
+                // Kontrollo nëse ka përgjigje për pyetjen aktuale
+                if (answers[currentQuestion] === null) {
+                    alert('Ju lutemi zgjidhni një përgjigje përpara se të vazhdoni!');
+                    return;
+                }
+                
+                if (currentQuestion < totalQuestions - 1) {
+                    currentQuestion++;
+                    showQuestion(currentQuestion);
+                    
+                    // Scroll në fillim të pyetjes
+                    questions[currentQuestion].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else {
+                    // Në fund të testit, shfaq rezultatet
+                    showResults();
+                }
+            });
+            
+            // Event listener për butonin "Rifillo testin"
+            restartBtn.addEventListener('click', function() {
+                // Rivendos të gjitha variablat
+                currentQuestion = 0;
+                answers.fill(null);
+                
+                // Rivendos scorin e personalitetit
+                for (let key in personalityScores) {
+                    personalityScores[key] = 0;
+                }
+                
+                // Hiq zgjedhjet nga të gjitha opsionet
+                options.forEach(option => option.classList.remove('selected'));
+                
+                // Rifillo testin
+                studentInfoSection.style.display = 'block';
+                quizSection.style.display = 'none';
+                resultSection.style.display = 'none';
+                
+                // Scroll në fillim
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // Event listener për butonin "Printo"
+            printBtn.addEventListener('click', function() {
+                window.print();
+            });
+            
+            // Lejo kalimin në pyetjen tjetër me Enter
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && quizSection.style.display !== 'none') {
+                    if (answers[currentQuestion] !== null) {
+                        nextBtn.click();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
